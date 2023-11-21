@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install modules
         run: npm install
+      - name: Run tests
+        run: npm run test
       - name: Build dist
         run: npm run build
       - name: Setup pages
