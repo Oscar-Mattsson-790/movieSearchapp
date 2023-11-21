@@ -1,0 +1,19 @@
+.movie-card {
+  width: 200px;
+  margin: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-info {
+  padding: 10px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
