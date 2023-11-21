@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DisplayMovies from "./DisplayMovies";
+import DisplayMovies from "../DisplayMovies.jsx/DisplayMovies";
 import "./SearchMovies.css";
 
 const SearchMovies = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard.jsx/MovieCard";
 import "./DisplayMovies.css";
 
 const DisplayMovies = ({ movies }) => {
