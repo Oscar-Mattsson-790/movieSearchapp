@@ -1,35 +1,11 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
+import { server } from "../../mock/server";
 import SearchMovies from "./SearchMovies";
-import { beforeAll, afterAll, expect } from "vitest";
+import { beforeAll, afterEach, afterAll, expect } from "vitest";
 
-// Create a mock server
-const server = setupServer(
-  http.get("http://www.omdbapi.com/", (req) => {
-    // Accessing query parameters here
-    const query = req.url.searchParams.get("s");
-
-    if (query === "Batman") {
-      return HttpResponse.json({
-        Search: [
-          {
-            imdbID: "tt0096895",
-            Title: "Batman",
-            Year: "1989",
-          },
-        ],
-      });
-    } else {
-      return HttpResponse.json({ Search: [] });
-    }
-  })
-);
-
-// Start the server before all tests
+// Use the server from server.js
 beforeAll(() => server.listen());
-
-// Close the server after all tests
+afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe("SearchMovies", () => {
@@ -42,7 +18,6 @@ describe("SearchMovies", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /sök/i }));
 
-    // Wait for the movie card to be displayed
     await waitFor(() => {
       const movieTitle = screen.getByText("Batman");
       expect(movieTitle).toBeInTheDocument();
