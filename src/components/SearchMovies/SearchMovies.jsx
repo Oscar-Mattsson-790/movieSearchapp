@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import DisplayMovies from "../DisplayMovies.jsx/DisplayMovies";
+import DisplayMovies from "../DisplayMovies/DisplayMovies";
 import "./SearchMovies.css";
 
 const SearchMovies = () => {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const API_KEY = "37fe945a";
 
   const searchMovies = async (e) => {
     e.preventDefault();
-    const url = `http://www.omdbapi.com/?apikey=37fe945a&s=${query}`;
+    const url = `http://www.omdbapi.com/?apikey=${API_KEY}&s=${query}`;
 
     try {
       const res = await fetch(url);

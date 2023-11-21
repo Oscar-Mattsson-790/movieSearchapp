@@ -1,5 +1,5 @@
 import React from "react";
-import SearchMovies from "./components/SearchMovies.jsx/SearchMovies";
+import SearchMovies from "./components/SearchMovies/SearchMovies";
 import "./App.css";
 
 export default function App() {
