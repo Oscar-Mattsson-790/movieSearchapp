@@ -14,7 +14,6 @@ const server = setupServer(
             imdbID: "tt0111161",
             Title: "The Shawshank Redemption",
             Year: "1994",
-            Poster: "...",
           },
         ],
       })
