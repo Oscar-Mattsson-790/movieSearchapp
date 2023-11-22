@@ -23,7 +23,6 @@ const movies = [
 
 export const handlers = [
   http.get("http://www.omdbapi.com/", (req, res, ctx) => {
-    console.log("Intercepted URL:", req.url.href);
     const query = req.url.searchParams.get("s");
     const filteredMovies = movies.filter((movie) =>
       movie.Title.toLowerCase().includes(query.toLowerCase())
